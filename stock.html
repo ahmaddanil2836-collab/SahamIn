@@ -4,266 +4,227 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BBCA - Analisis Saham | SahamInn</title>
+<title>SahamIn - Analisis Saham Indonesia</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #06101c;
-  color: #f5f7fa;
+body{
+  font-family:Arial,sans-serif;
+  background:#0b1120;
+  color:#fff;
 }
 
-header {
-  background: #081523;
-  border-bottom: 1px solid #1d3045;
-  padding: 16px;
+header{
+  background:#111827;
+  border-bottom:1px solid #263244;
+  padding:16px 20px;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
-.nav {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.logo {
-  font-size: 23px;
-  font-weight: bold;
+.logo{
+  font-size:24px;
+  font-weight:bold;
 }
 
-.logo span {
-  color: #20f05a;
+.logo span{
+  color:#22c55e;
 }
 
-.back {
-  color: #aab7c5;
-  text-decoration: none;
+.nav a{
+  color:#aaa;
+  text-decoration:none;
+  margin-left:20px;
 }
 
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 22px 16px 50px;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 20px;
 }
 
-.stock-head {
-  background: #0a1827;
-  border: 1px solid #1b344d;
-  border-radius: 16px;
-  padding: 22px;
-  margin-bottom: 18px;
+.hero{
+  padding:30px 0;
 }
 
-.stock-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
+.hero h1{
+  font-size:36px;
+  margin-bottom:10px;
 }
 
-.ticker {
-  color: #20f05a;
-  font-size: 14px;
-  font-weight: bold;
+.hero p{
+  color:#9ca3af;
+  margin-bottom:25px;
 }
 
-.company {
-  color: #9aaabd;
-  margin-top: 5px;
+.search{
+  display:flex;
+  gap:10px;
+  max-width:600px;
 }
 
-.price {
-  font-size: 32px;
-  font-weight: bold;
-  margin-top: 15px;
+.search input{
+  flex:1;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #334155;
+  background:#111827;
+  color:white;
+  font-size:16px;
 }
 
-.change {
-  color: #20f05a;
-  margin-top: 5px;
+button{
+  padding:14px 20px;
+  border:0;
+  border-radius:10px;
+  background:#22c55e;
+  color:#06110a;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.signal {
-  background: rgba(32,240,90,.12);
-  border: 1px solid #20f05a;
-  color: #20f05a;
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: bold;
+button:hover{
+  background:#16a34a;
 }
 
-.card {
-  background: #0a1827;
-  border: 1px solid #1b344d;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 18px;
+.section-title{
+  margin:25px 0 15px;
+  font-size:22px;
 }
 
-.card h2 {
-  margin-bottom: 18px;
-  font-size: 20px;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
 
-.tabs {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  margin-bottom: 18px;
+.card{
+  background:#111827;
+  border:1px solid #263244;
+  border-radius:14px;
+  padding:18px;
 }
 
-.tab {
-  background: #102235;
-  border: 0;
-  color: #aab7c5;
-  padding: 9px 14px;
-  border-radius: 8px;
-  white-space: nowrap;
+.card small{
+  color:#9ca3af;
 }
 
-.tab.active {
-  background: #20f05a;
-  color: #041009;
-  font-weight: bold;
+.card h2{
+  margin:8px 0;
 }
 
-.chart {
-  height: 280px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  background:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size: 50px 50px;
+.up{
+  color:#22c55e;
 }
 
-.chart svg {
-  width: 100%;
-  height: 100%;
+.down{
+  color:#ef4444;
 }
 
-.chart-label {
-  display: flex;
-  justify-content: space-between;
-  color: #708298;
-  font-size: 12px;
-  margin-top: 8px;
+.analysis{
+  margin-top:25px;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:20px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+.panel{
+  background:#111827;
+  border:1px solid #263244;
+  border-radius:14px;
+  padding:20px;
 }
 
-.metric {
-  background: #0d2032;
-  border-radius: 10px;
-  padding: 15px;
+.chart{
+  height:280px;
+  display:flex;
+  align-items:end;
+  gap:8px;
+  padding-top:30px;
 }
 
-.metric-title {
-  color: #8192a6;
-  font-size: 12px;
-  margin-bottom: 7px;
+.bar{
+  flex:1;
+  background:#22c55e;
+  border-radius:5px 5px 0 0;
+  min-height:20px;
 }
 
-.metric-value {
-  font-size: 18px;
-  font-weight: bold;
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
 }
 
-.green {
-  color: #20f05a;
+th,td{
+  padding:12px 8px;
+  border-bottom:1px solid #263244;
+  text-align:left;
 }
 
-.red {
-  color: #ff5555;
+th{
+  color:#9ca3af;
 }
 
-.analysis {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+.signal{
+  text-align:center;
+  padding:20px;
+  background:#052e16;
+  border-radius:12px;
+  margin-top:15px;
 }
 
-.bar {
-  height: 8px;
-  background: #1c3043;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-top: 8px;
+.signal h2{
+  color:#22c55e;
+  margin-bottom:8px;
 }
 
-.bar span {
-  display: block;
-  height: 100%;
-  background: #20f05a;
+footer{
+  text-align:center;
+  color:#6b7280;
+  padding:40px 20px;
+  margin-top:30px;
 }
 
-.verdict {
-  border-left: 4px solid #20f05a;
-  background: #0d2032;
-  padding: 18px;
-  border-radius: 8px;
-}
-
-.verdict h3 {
-  color: #20f05a;
-  margin-bottom: 8px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-td {
-  padding: 12px 4px;
-  border-bottom: 1px solid #1b3043;
-}
-
-td:first-child {
-  color: #91a0b2;
-}
-
-td:last-child {
-  text-align: right;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  color: #617287;
-  padding: 25px;
-  font-size: 13px;
-}
-
-@media(max-width:700px) {
-
-  .stock-top {
-    align-items: flex-start;
-    flex-direction: column;
+@media(max-width:800px){
+  .cards{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .analysis{
+    grid-template-columns:1fr;
   }
 
-  .analysis {
-    grid-template-columns: 1fr;
+  .hero h1{
+    font-size:28px;
+  }
+}
+
+@media(max-width:500px){
+  .cards{
+    grid-template-columns:1fr;
   }
 
-  .price {
-    font-size: 28px;
+  .search{
+    flex-direction:column;
+  }
+
+  .nav a{
+    display:none;
   }
 }
 </style>
@@ -273,319 +234,188 @@ footer {
 
 <header>
   <div class="nav">
-    <div class="logo">Saham<span>Inn</span></div>
-    <a href="index.html" class="back">← Kembali</a>
+    <div class="logo">Saham<span>In</span></div>
+
+    <div>
+      <a href="#">Beranda</a>
+      <a href="#">Saham</a>
+      <a href="#">Analisis</a>
+    </div>
   </div>
 </header>
 
-<main>
+<main class="container">
 
-  <!-- HEADER SAHAM -->
-  <section class="stock-head">
+  <section class="hero">
+    <h1>Analisis Saham Indonesia</h1>
 
-    <div class="stock-top">
+    <p>
+      Cari saham dan lihat informasi harga, fundamental,
+      serta sinyal analisis sederhana.
+    </p>
 
-      <div>
-        <div class="ticker">BBCA • IDX</div>
+    <div class="search">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Masukkan kode saham, contoh BBCA"
+      >
 
-        <h1>Bank Central Asia Tbk</h1>
+      <button onclick="cariSaham()">Cari Saham</button>
+    </div>
+  </section>
 
-        <div class="company">
-          PT Bank Central Asia Tbk
-        </div>
+  <h2 class="section-title">Saham Pilihan</h2>
 
-        <div class="price">
-          Rp 9.875
-        </div>
+  <section class="cards">
 
-        <div class="change">
-          ▲ +232 (+2,41%)
-        </div>
-      </div>
+    <div class="card">
+      <small>BBCA</small>
+      <h2>Rp 8.750</h2>
+      <span class="up">▲ 1,25%</span>
+    </div>
 
-      <div class="signal">
-        BUY
-      </div>
+    <div class="card">
+      <small>BBRI</small>
+      <h2>Rp 4.120</h2>
+      <span class="up">▲ 0,85%</span>
+    </div>
 
+    <div class="card">
+      <small>BMRI</small>
+      <h2>Rp 5.900</h2>
+      <span class="up">▲ 1,70%</span>
+    </div>
+
+    <div class="card">
+      <small>TLKM</small>
+      <h2>Rp 2.850</h2>
+      <span class="down">▼ 0,45%</span>
     </div>
 
   </section>
 
-
-  <!-- CHART -->
-  <section class="card">
-
-    <h2>Pergerakan Harga</h2>
-
-    <div class="tabs">
-      <button class="tab active">1D</button>
-      <button class="tab">1W</button>
-      <button class="tab">1M</button>
-      <button class="tab">3M</button>
-      <button class="tab">1Y</button>
-      <button class="tab">5Y</button>
-    </div>
-
-    <div class="chart">
-
-      <svg viewBox="0 0 1000 300" preserveAspectRatio="none">
-
-        <defs>
-          <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#20f05a" stop-opacity=".35"/>
-            <stop offset="100%" stop-color="#20f05a" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-
-        <path
-          d="M0 230
-          L40 215
-          L80 220
-          L120 195
-          L160 205
-          L200 180
-          L240 190
-          L280 165
-          L320 175
-          L360 150
-          L400 158
-          L440 130
-          L480 140
-          L520 120
-          L560 125
-          L600 105
-          L640 115
-          L680 90
-          L720 100
-          L760 75
-          L800 85
-          L840 60
-          L880 70
-          L920 45
-          L960 55
-          L1000 30
-          L1000 300
-          L0 300 Z"
-          fill="url(#area)"
-        />
-
-        <path
-          d="M0 230
-          L40 215
-          L80 220
-          L120 195
-          L160 205
-          L200 180
-          L240 190
-          L280 165
-          L320 175
-          L360 150
-          L400 158
-          L440 130
-          L480 140
-          L520 120
-          L560 125
-          L600 105
-          L640 115
-          L680 90
-          L720 100
-          L760 75
-          L800 85
-          L840 60
-          L880 70
-          L920 45
-          L960 55
-          L1000 30"
-          fill="none"
-          stroke="#20f05a"
-          stroke-width="4"
-        />
-
-      </svg>
-
-    </div>
-
-    <div class="chart-label">
-      <span>09:00</span>
-      <span>11:00</span>
-      <span>13:00</span>
-      <span>15:00</span>
-    </div>
-
-  </section>
-
-
-  <!-- TEKNIKAL -->
-  <section class="card">
-
-    <h2>📊 Analisis Teknikal</h2>
-
-    <div class="grid">
-
-      <div class="metric">
-        <div class="metric-title">RSI (14)</div>
-        <div class="metric-value green">61,4</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-title">MACD</div>
-        <div class="metric-value green">+24,8</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-title">MA20</div>
-        <div class="metric-value">9.720</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-title">MA50</div>
-        <div class="metric-value">9.580</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-title">MA200</div>
-        <div class="metric-value">9.210</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-title">Support</div>
-        <div class="metric-value">9.650</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-title">Resistance</div>
-        <div class="metric-value">10.000</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-title">Trend</div>
-        <div class="metric-value green">Bullish</div>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FUNDAMENTAL + VALUASI -->
   <div class="analysis">
 
-    <section class="card">
+    <section class="panel">
 
-      <h2>💰 Fundamental</h2>
+      <h2 id="judulSaham">BBCA - Bank Central Asia</h2>
+
+      <div class="chart">
+
+        <div class="bar" style="height:35%"></div>
+        <div class="bar" style="height:48%"></div>
+        <div class="bar" style="height:42%"></div>
+        <div class="bar" style="height:60%"></div>
+        <div class="bar" style="height:55%"></div>
+        <div class="bar" style="height:72%"></div>
+        <div class="bar" style="height:68%"></div>
+        <div class="bar" style="height:85%"></div>
+        <div class="bar" style="height:78%"></div>
+        <div class="bar" style="height:92%"></div>
+
+      </div>
+
+      <h3>Data Fundamental</h3>
 
       <table>
+        <tr>
+          <th>Indikator</th>
+          <th>Nilai</th>
+        </tr>
+
+        <tr>
+          <td>Harga</td>
+          <td>Rp 8.750</td>
+        </tr>
 
         <tr>
           <td>PER</td>
-          <td>21,4x</td>
+          <td>22,4x</td>
         </tr>
 
         <tr>
           <td>PBV</td>
-          <td>4,1x</td>
+          <td>4,8x</td>
         </tr>
 
         <tr>
           <td>ROE</td>
-          <td class="green">23,8%</td>
+          <td>23,1%</td>
         </tr>
 
         <tr>
-          <td>DER</td>
-          <td>0,18x</td>
+          <td>Dividend Yield</td>
+          <td>2,4%</td>
         </tr>
-
-        <tr>
-          <td>Revenue Growth</td>
-          <td class="green">+9,4%</td>
-        </tr>
-
-        <tr>
-          <td>Net Profit Growth</td>
-          <td class="green">+11,2%</td>
-        </tr>
-
       </table>
 
     </section>
 
+    <section class="panel">
 
-    <section class="card">
+      <h2>Sinyal Analisis</h2>
 
-      <h2>🎯 Valuasi</h2>
-
-      <div class="metric">
-        <div class="metric-title">
-          Estimasi Fair Value
-        </div>
-
-        <div class="metric-value">
-          Rp 10.600
-        </div>
+      <div class="signal">
+        <h2>BUY</h2>
+        <p>Momentum positif</p>
       </div>
 
-      <br>
+      <h3 style="margin-top:25px;">Indikator</h3>
 
-      <div class="metric">
-        <div class="metric-title">
-          Potensi Upside
-        </div>
+      <table>
+        <tr>
+          <td>RSI</td>
+          <td class="up">58</td>
+        </tr>
 
-        <div class="metric-value green">
-          +7,34%
-        </div>
-      </div>
+        <tr>
+          <td>MACD</td>
+          <td class="up">Bullish</td>
+        </tr>
 
-      <br>
+        <tr>
+          <td>Trend</td>
+          <td class="up">Naik</td>
+        </tr>
 
-      <div class="metric">
-        <div class="metric-title">
-          Margin of Safety
-        </div>
-
-        <div class="metric-value">
-          12%
-        </div>
-      </div>
+        <tr>
+          <td>Volume</td>
+          <td>Normal</td>
+        </tr>
+      </table>
 
     </section>
 
   </div>
 
-
-  <!-- KESIMPULAN -->
-  <section class="card">
-
-    <h2>🤖 Kesimpulan Analisis</h2>
-
-    <div class="verdict">
-
-      <h3>🟢 BULLISH / BUY</h3>
-
-      <p>
-        Tren harga berada di atas MA20, MA50, dan MA200.
-        RSI masih berada pada area positif dan MACD menunjukkan
-        momentum naik.
-      </p>
-
-      <br>
-
-      <p>
-        Secara fundamental, profitabilitas perusahaan tergolong kuat.
-        Namun investor tetap perlu memperhatikan valuasi dan risiko
-        koreksi harga.
-      </p>
-
-    </div>
-
-  </section>
-
 </main>
 
 <footer>
-  SahamInn © 2026 — Analisis saham Indonesia
+  © 2026 SahamIn — Website informasi dan analisis saham Indonesia
 </footer>
+
+<script>
+
+function cariSaham(){
+
+  let kode =
+    document.getElementById("searchInput")
+    .value
+    .trim()
+    .toUpperCase();
+
+  if(kode === ""){
+    alert("Masukkan kode saham terlebih dahulu.");
+    return;
+  }
+
+  document.getElementById("judulSaham").innerText =
+    kode + " - Analisis Saham";
+
+}
+
+</script>
 
 </body>
 </html>
