@@ -396,25 +396,24 @@ footer{
 </footer>
 
 <script>
-
 function cariSaham(){
 
-  let kode =
-    document.getElementById("searchInput")
-    .value
-    .trim()
-    .toUpperCase();
+    let kode = document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toUpperCase();
 
-  if(kode === ""){
-    alert("Masukkan kode saham terlebih dahulu.");
-    return;
-  }
+    if(kode === ""){
+        alert("Masukkan kode saham terlebih dahulu.");
+        return;
+    }
 
-  document.getElementById("judulSaham").innerText =
-    kode + " - Analisis Saham";
+    document.getElementById("judulSaham").innerText =
+        kode + " - Analisis Saham";
 
+    alert("Menampilkan analisis saham " + kode);
 }
-
 </script>
 
 </body>
