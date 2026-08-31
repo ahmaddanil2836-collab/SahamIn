@@ -396,25 +396,97 @@ footer{
 </footer>
 
 <script>
+
+<script>
+const databaseSaham = {
+  BBCA: {
+    nama: "Bank Central Asia",
+    harga: "Rp 8.750",
+    perubahan: "▲ 1,25%",
+    rsi: "58",
+    macd: "Bullish",
+    trend: "Naik",
+    volume: "Normal"
+  },
+
+  BBRI: {
+    nama: "Bank Rakyat Indonesia",
+    harga: "Rp 4.120",
+    perubahan: "▲ 0,85%",
+    rsi: "55",
+    macd: "Bullish",
+    trend: "Naik",
+    volume: "Normal"
+  },
+
+  BMRI: {
+    nama: "Bank Mandiri",
+    harga: "Rp 5.900",
+    perubahan: "▲ 1,70%",
+    rsi: "61",
+    macd: "Bullish",
+    trend: "Naik",
+    volume: "Tinggi"
+  },
+
+  TLKM: {
+    nama: "Telkom Indonesia",
+    harga: "Rp 2.850",
+    perubahan: "▼ 0,45%",
+    rsi: "48",
+    macd: "Bearish",
+    trend: "Turun",
+    volume: "Normal"
+  },
+
+  ASII: {
+    nama: "Astra International",
+    harga: "Rp 4.980",
+    perubahan: "▲ 0,60%",
+    rsi: "57",
+    macd: "Bullish",
+    trend: "Naik",
+    volume: "Normal"
+  }
+};
+
 function cariSaham(){
 
-    let kode = document
-        .getElementById("searchInput")
-        .value
-        .trim()
-        .toUpperCase();
+  let kode = document
+    .getElementById("searchInput")
+    .value
+    .trim()
+    .toUpperCase();
 
-    if(kode === ""){
-        alert("Masukkan kode saham terlebih dahulu.");
-        return;
-    }
+  if(kode === ""){
+    alert("Masukkan kode saham terlebih dahulu.");
+    return;
+  }
 
-    document.getElementById("judulSaham").innerText =
-        kode + " - Analisis Saham";
+  let saham = databaseSaham[kode];
 
-    alert("Menampilkan analisis saham " + kode);
+  if(!saham){
+    alert(
+      "Kode saham " + kode +
+      " belum tersedia.\n\n" +
+      "Coba: BBCA, BBRI, BMRI, TLKM atau ASII."
+    );
+    return;
+  }
+
+  document.getElementById("judulSaham").innerText =
+    kode + " - " + saham.nama;
+
+  alert(
+    "Data saham " + kode + " ditemukan!\n\n" +
+    "Harga: " + saham.harga + "\n" +
+    "Perubahan: " + saham.perubahan + "\n" +
+    "RSI: " + saham.rsi + "\n" +
+    "MACD: " + saham.macd + "\n" +
+    "Trend: " + saham.trend + "\n" +
+    "Volume: " + saham.volume
+  );
 }
 </script>
-
 </body>
 </html>
